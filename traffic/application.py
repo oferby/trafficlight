@@ -2,4 +2,4 @@
 
 
 def main():
-    print 'starting traffic lights optimizer....'
+    print('starting traffic lights optimizer....')
