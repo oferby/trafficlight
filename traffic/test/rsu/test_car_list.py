@@ -61,12 +61,16 @@ class put_worker(th.Thread):
 class get_worker(th.Thread):
     def run(self):
         i = 0
+        green = False
         while True:
-            print('light cycle: %s ' % i)
             if i > (out_rc + out_gc):
-                print('reset light')
                 i = 0
+                green = False
+                print('***********  light is red **************')
             if i > out_rc:
+                if not green:
+                    green = True
+                    print('***********  light is green **************')
                 num_of_cars = len(cars)
                 print('%s cars in queue' % num_of_cars)
                 if num_of_cars > 0:
