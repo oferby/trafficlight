@@ -1,7 +1,7 @@
- '''x are the places of the car and t is the time between them'''
+'''x are the places of the car and t is the time between them'''
 
 def Velocity(x1,x2,x3,t):
-    v2 = (x3-x1)/2t
+    v2 = (x3-x1)/(2*t)
     return (v2)
 
 def Acceleration(x1,x2,x3,t):
@@ -15,5 +15,8 @@ def ExpectedPoint(x1,x2,x3,t):
     a2 = Acceleration(x1,x2,x3,t)
     x4 = x2+2*t*v2+2*t*t*a2
     return (x4)
+
+
+
 
 
