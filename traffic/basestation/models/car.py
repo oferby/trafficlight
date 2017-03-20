@@ -9,11 +9,11 @@ class Car:
         self.id = id
         self.locations = collections.deque(maxlen=5)
         self.arrival_time = time.time()
-        self.update(location, self.arrival_time)
+        self.arrival_time = 0
 
     def update(self, location, update_time=time.time()):
         self.locations.append(location)
-        self.last_seen = update_time
+        self.arrival_time += 1
 
     def get_wait_time_in_sec(self):
-        return round(self.last_seen - self.arrival_time)
+        return self.arrival_time
