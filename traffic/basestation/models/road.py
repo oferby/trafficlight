@@ -33,15 +33,15 @@ class Road:
         self.remove_cars()
 
     def switch_to_green(self):
-        print('***********  %s: light is green **************' % self.uuid)
-        print('%s cars in queue' % len(self.cars))
+        # print('***********  %s: light is green **************' % self.uuid)
+        # print('%s cars in queue' % len(self.cars))
         self.sec = 0
         self.is_green = True
 
     def switch_to_red(self):
         if self.is_green:
-            print('***********  light is red **************')
-            print('%s cars in queue' % len(self.cars))
+            # print('***********  light is red **************')
+            # print('%s cars in queue' % len(self.cars))
             self.sec = 0
             self.is_green = False
 
@@ -76,6 +76,9 @@ class Road:
             for i in range(cars_to_remove):
                 c = self.cars.pop()
                 # print('Removed car %s' % c.id)
+
+    def clear_all(self):
+        self.cars = collections.deque()
 
     def get_stats(self):
         num_of_cars = len(self.cars)
