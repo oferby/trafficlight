@@ -17,12 +17,6 @@ green_cycle = [5, 5, 5, 5]
 roads = []
 
 
-class ai_worker(th.Thread):
-    def run(self):
-        while True:
-            time.sleep(1)
-
-
 def _switch_to_red():
     for r in roads:
         r.switch_to_red()
@@ -31,9 +25,6 @@ def _switch_to_red():
 def main():
     for i in range(4):
         roads.append(road.Road(i, samples[i]))
-
-    ai = ai_worker()
-    ai.start()
 
     optimizer = factory.get_optimizer()
     while True:
