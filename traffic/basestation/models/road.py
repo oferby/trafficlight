@@ -24,6 +24,7 @@ class Road:
         self.in_nzc = params[5]
         self.sec = 0
         self.zero_time = np.random.randint(0, self.in_zc + self.in_nzc)
+        self.in_rate = 0
         print('Max out: %s' % self.max_out)
 
     def run(self):
@@ -66,6 +67,7 @@ class Road:
             for j in range(in_rate):
                 c = car.Car('mac%s' % time.time(), '')
                 self.cars.append(c)
+        self.in_rate = round(in_rate * 0.6 + self.in_rate * 0.4, 2)
 
     def remove_cars(self):
         if self.is_green:
@@ -84,7 +86,8 @@ class Road:
         num_of_cars = len(self.cars)
         stats = {
             'uuid': self.uuid,
-            'num_of_cars': num_of_cars
+            'num_of_cars': num_of_cars,
+            'in_rate' : self.in_rate
         }
 
         if num_of_cars > 0:
